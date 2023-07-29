@@ -15,14 +15,14 @@ const createResultSection = data=> {
     const resultSection = document.getElementById("resultSection");
     resultSection.textContent = '';
     const resultObject = {
-        address: data?.ip,
-        locationName : `${data?.location?.city}, ${data?.location?.region}, ${data?.location?.postalCode}`,
-        timeZone: `UTC ${data?.location?.timezone}`,
+        ip_address: data?.ip,
+        location : `${data?.location?.city}, ${data?.location?.region}, ${data?.location?.postalCode}`,
+        timezone: `UTC ${data?.location?.timezone}`,
         isp: data?.isp
     }
     
     Object.entries(resultObject).forEach((i, index)=> {
-        console.log(index)
+        console.log(i)
         const div = document.createElement("div");
         const span0 = document.createElement("span");
         const span1 = document.createElement("span");

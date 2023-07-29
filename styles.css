@@ -13,6 +13,7 @@ h1{
     color: white;
     font-weight: 500;
     font-size: 2rem;
+    margin: 2rem 0;
 }
 #top{
     background-image: url("./images/pattern-bg-desktop.png");
@@ -21,7 +22,7 @@ h1{
     height: 35vh;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    /* justify-content: space-around; */
     flex-direction: column;
     /* position: relative; */
 }
@@ -62,7 +63,7 @@ button{
     display: flex;
     /* justify-content: space-between; */
     position: absolute;
-    top: 28vh;
+    top: 26vh;
     z-index: 401;
 }
 .resultPart{
@@ -79,10 +80,12 @@ button{
     font-weight: 500;
     font-size: 0.8rem;
     margin-bottom: 0.5rem;
+    letter-spacing: 150%;
 }
 .resultValue{
     font-size: 1.2rem;
     font-weight: 500;
+    color: hsl(0, 0%, 17%);
 }
 .wall{
     height: 50px;
@@ -91,4 +94,86 @@ button{
 }
 #map{
     flex: 1;
+}
+
+@media only screen and (min-width: 720px) and (max-width: 992px) {
+    #form{
+        min-width: 400px;
+    }
+    #resultSection{
+        width: 85vw;
+        padding: 0.5rem;
+    }
+    .resultName{
+        font-size: 0.7rem;
+    }
+    .resultValue{
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (max-width: 719px) {
+    h1{
+        margin: 1.75rem 0;
+        font-size: 1.5rem;
+    }
+    #form{
+        border-radius: 0.75rem;
+        width: 87vw;
+    }
+    input{
+        border-radius: 0.75rem 0 0 0.75rem;
+        padding: 1rem 1rem;
+        font-size: 1rem;
+    }
+    button{
+        border-radius: 0 0.75rem 0.75rem 0;
+    }
+    #resultSection{
+        width: 87vw;
+        max-width: 500px;
+        padding: 0.5rem;
+        flex-direction: column;
+        top: 21vh;
+    }
+    .wall{
+        display: none;
+    }
+    .resultPart{
+        padding: 0 1rem;
+        margin-bottom: 1rem;
+        width: 100%;
+        text-align: center;
+    }
+    #firstResultPart{
+        margin-top: 1rem;
+    }
+    .resultName{
+        font-size: 0.7rem;
+        font-weight: 600;
+        margin-bottom: 0.25rem;
+        letter-spacing: 1px;
+    }
+    .resultValue{
+        font-size: 1.3rem;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #top{
+        background-image: url("./images/pattern-bg-mobile.png");
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    #top{
+        background-image: url("./images/pattern-bg-mobile.png");
+    }
+    input{
+        padding: 1.25rem 1rem;
+        flex: 8.5;
+    }
+    button{
+        flex: 1.5;
+    }
 }
