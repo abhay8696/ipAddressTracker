@@ -9,6 +9,40 @@ center: [39.76838, -86.15804],
 zoom: 13
 });
 
+
+
+const createResultSection = data=> {
+    const resultSection = document.getElementById("resultSection");
+    resultSection.textContent = '';
+    const resultObject = {
+        address: data?.ip,
+        locationName : `${data?.location?.city}, ${data?.location?.region}, ${data?.location?.postalCode}`,
+        timeZone: `UTC ${data?.location?.timezone}`,
+        isp: data?.isp
+    }
+    
+    Object.entries(resultObject).forEach((i, index)=> {
+        console.log(index)
+        const div = document.createElement("div");
+        const span0 = document.createElement("span");
+        const span1 = document.createElement("span");
+
+        const wall = document.createElement("div");
+        wall.className = "wall";
+
+        div.className = "resultPart";
+        if(index === 0) div.id = "firstResultPart";
+        span0.className = "resultName";
+        span1.className = "resultValue";
+        
+        span0.textContent = i[0];
+        span1.textContent = i[1]
+
+        div.append(span0,span1);
+        resultSection.append(div);
+        if(index < 3) resultSection.append(wall);
+    })
+}
 // 4. Create Map
 const createMap = (lat, lng)=>{
     map.remove();   // 4.1 Delete existing map bject
@@ -35,7 +69,7 @@ const fetchData = async address=> {
     const url = `https://geo.ipify.org/api/v2/country,city?apiKey=at_L0YPzgaZai10bAHk48JdbUxGQE0VO&ipAddress=${address}`;
     const response = await fetch(url);
     const data = await response.json();
-    // console.log(data);
+    console.log(data);
     return data;
 }
 
@@ -45,6 +79,7 @@ addEventListener("DOMContentLoaded", async event => {
     ownIP = await getOwnIP();   //2. fetch own ip address initially
     const data = await fetchData(ownIP?.ip);    // 3. Fetch ip address data(on app load / user input)
     let { lat, lng } = data?.location;
+    createResultSection(data);
     createMap(lat, lng);  // 4. Creat Map with fetched coordinates
 });
 
@@ -54,7 +89,9 @@ form.addEventListener("submit", async e=> {
     const address = document.getElementById("input").value;
     const data = await fetchData(address);
     let { lat, lng } = data?.location;
+    createResultSection(data);
     createMap(lat, lng);    // 4. Creat Map with fetched coordinates
+    document.getElementById("input").value = '';
 })
 
 
