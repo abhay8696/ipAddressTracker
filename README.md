@@ -25,7 +25,7 @@ The users are be able to:
 ## Visit my profiles on following platforms to checkout more Projects
 
 
-- [frontend-mentor](https://www.frontendmentor.io/profile/abhay8696)
-- [linkedIn](https://www.linkedin.com/in/abhay8696/)
+- [frontend-mentor](https://www.frontendmentor.io/profile/abhay8696){:target="_blank"}
+- [linkedIn](https://www.linkedin.com/in/abhay8696/){:target="_blank"}
 
 **Have fun building!** 🚀
