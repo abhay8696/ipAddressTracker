@@ -1,5 +1,6 @@
 const body = Array.from(document.getElementsByTagName("body"))[0];
 const form = document.getElementById("form");
+// const icon_location = import("")
 
 let ownIP;
 
@@ -7,6 +8,16 @@ let ownIP;
 let map = L.map('map', {
 center: [39.76838, -86.15804],
 zoom: 13
+});
+
+const loactionIcon = L.icon({
+    iconUrl: '../images/placeholder.png',
+    iconSize: [48,48],
+    iconAnchor: [24, 47],
+    // popupAnchor: [-3, -76],
+    // shadowUrl: 'my-icon-shadow.png',
+    shadowSize: [68, 95],
+    shadowAnchor: [22, 94]
 });
 
 
@@ -53,10 +64,12 @@ const createMap = (lat, lng)=>{
     const tileUrl = "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png";
     const attrbution = `&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Coded by abhay8696 with❤`;
     const tiles = L.tileLayer(tileUrl, { attrbution });
-    const marker = L.circleMarker([lat, lng]).addTo(map);
+    const marker2 = L.circleMarker([lat, lng], {radius: 5, color:'#666666'}).addTo(map);
+    const marker = L.marker([lat, lng], {icon: loactionIcon});
 
     tiles.addTo(map);
     marker.addTo(map);
+    marker2.addTo(map);
 }
 
 const getOwnIP = async ()=> {
