@@ -11,7 +11,7 @@ zoom: 13
 });
 
 const loactionIcon = L.icon({
-    iconUrl: '../images/placeholder.png',
+    iconUrl: 'https://raw.githubusercontent.com/abhay8696/ipAddressTracker/master/images/placeholder.png',
     iconSize: [48,48],
     iconAnchor: [24, 47],
     // popupAnchor: [-3, -76],
